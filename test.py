@@ -96,9 +96,9 @@ def get_lesson_tree(course_catalog, cookie):
 def choose_lesson(children):
     for index, lesson in enumerate(children):
         if len(lesson["children"]) == 0 and not lesson["vid"]:
-            print(f"Index: {index}, Name: {lesson["name"]}, 暂不支持处理直播回放")
+            print(f"Index: {index}, Name: {lesson['name']}, 暂不支持处理直播回放")
             continue
-        print(f"Index: {index}, Name: {lesson["name"]}")
+        print(f"Index: {index}, Name: {lesson['name']}")
     lesson_index = int(input("选择课程："))
     print()
     lesson = children[lesson_index]
@@ -164,7 +164,7 @@ if __name__ == "__main__":
     course_list = get_course_list(cookie)
     for index, course in enumerate(course_list):
         print(
-            f"Index: {index}, Name: {course["name"]}, 上次学到：{course["progress_name"] or "无"}"
+            f"Index: {index}, Name: {course['name']}, 上次学到：{course['progress_name'] or '无'}"
         )
     course_index = int(input("选择课程："))
     print()
@@ -190,7 +190,7 @@ if __name__ == "__main__":
                 [
                     str(config["mpv_path"]),
                     str(video_url),
-                    f"--force-media-title={lesson["name"]}",
+                    f"--force-media-title={lesson['name']}",
                 ],
                 check=False,
             )
@@ -203,7 +203,7 @@ if __name__ == "__main__":
                     str(video_url),
                     "-c",
                     "copy",
-                    f"{lesson["name"]}.mp4",
+                    f"{lesson['name']}.mp4",
                 ],
                 check=False,
             )
