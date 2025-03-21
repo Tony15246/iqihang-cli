@@ -14,7 +14,7 @@ def get_cookie(phone, password):
         "Content-Type": "application/json",
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
     }
-    data = {"loginType": 2, "clientType": 2, "account": phone, "password": password}
+    data = {"loginType": 2, "clientType": 2, "registerPlatform": 2, "account": phone, "password": password}
     response = requests.post(url, headers=headers, json=data, timeout=5)
     return response.json()["data"]["token"]
 
